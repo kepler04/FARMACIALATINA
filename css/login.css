@@ -1,0 +1,205 @@
+/* assets/css/login.css - DISEÑO SPLIT SCREEN MODERNO */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+}
+
+/* Contenedor principal de pantalla dividida */
+.login-wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* --- PANEL IZQUIERDO (BRANDING ROJO) --- */
+.login-left {
+    flex: 1; /* Ocupa el 50% del espacio */
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); /* Degradado Rojo Botica */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Un patrón de fondo sutil para darle textura */
+.login-left::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.brand-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    color: rgba(255,255,255,0.9);
+    z-index: 1;
+}
+
+.brand-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+
+.brand-subtitle {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: rgba(255,255,255,0.7);
+    z-index: 1;
+}
+
+/* --- PANEL DERECHO (FORMULARIO) --- */
+.login-right {
+    flex: 1; /* El otro 50% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    background-color: #ffffff;
+}
+
+.login-form-container {
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para que se vea elegante */
+}
+
+.login-header {
+    margin-bottom: 40px;
+}
+
+.login-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 10px 0;
+}
+
+.login-header p {
+    color: #64748b;
+    margin: 0;
+}
+
+/* Inputs con Iconos */
+.form-group {
+    margin-bottom: 25px;
+    position: relative; /* Necesario para los iconos absolutos */
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 52px; /* Ajuste fino para centrar el icono verticalmente */
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 1.1rem;
+    z-index: 2;
+}
+/* Ajuste si hay label o no */
+.form-group label + .input-icon { top: 42px; } 
+
+
+.form-control {
+    width: 100%;
+    padding: 14px 16px 14px 48px; /* Espacio a la izquierda para el icono */
+    font-size: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.form-control:focus {
+    background-color: #ffffff;
+    border-color: #dc2626;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+}
+
+.form-control::placeholder { color: #cbd5e1; }
+
+/* Botón de Ingreso "Gordito" */
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(220, 38, 38, 0.4);
+}
+
+/* Enlaces adicionales */
+.forgot-link {
+    display: block;
+    text-align: right;
+    margin-bottom: 25px;
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+.forgot-link:hover { text-decoration: underline; }
+
+/* Alerta de error moderna */
+.alert-error {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* RESPONSIVE: En celulares se pone uno debajo del otro */
+@media (max-width: 900px) {
+    .login-wrapper { flex-direction: column; }
+    .login-left { flex: 0 0 35%; padding: 30px; }
+    .login-right { flex: 1; padding: 40px 20px; }
+    .brand-icon { font-size: 3.5rem; margin-bottom: 10px; }
+    .brand-title { font-size: 1.8rem; }
+    .brand-subtitle { font-size: 1rem; }
+    .input-icon { top: 48px; } /* Reajuste icono móvil */
+    .form-group label + .input-icon { top: 40px; }
+}
